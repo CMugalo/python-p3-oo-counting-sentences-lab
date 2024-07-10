@@ -15,9 +15,30 @@ class MyString:
     else:
       print("The value must be a string.")
   
-  # def is_sentence(self, value):
-  #   if type(value) == str and value[-1] == ".":
-  #     self._value = value
-  #     return True
-  #   else:
-  #     return False
+  def is_sentence(self):
+    if self.value[-1] == ".":
+      return True
+    else:
+      return False
+  
+  def is_question(self):
+    if self.value[-1] == "?":
+      return True
+    else:
+      return False
+  
+  def is_exclamation(self):
+    if self.value[-1] =="!":
+      return True
+    else:
+      return False
+  
+  def count_sentences(self):
+    if self.value == "":
+      return 0
+    else:
+      replace_excl = self.value.replace("! ", ". ")
+      replace_qstn = replace_excl.replace("? ", ". ")
+      return len(replace_qstn.split(". "))
+
+
